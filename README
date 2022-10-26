@@ -1,0 +1,41 @@
+The goal of this homework is to become familiar with message queues and to implement critical sections with them.
+We have to make two executable oss.o and worker.o The first executable file, oss, will be in charge of
+launching a specific number of child processes at various times using a fork followed by an exec. oss should then
+keep track of how many children have finished executing and terminate itself only when all of its children have
+finished.
+As we are implementing a critical section with message queues, oss should create a message queue and put a message
+in it with msgsnd(). It does not matter what is in the message, but it should be readable by any process.
+
+The task in the child executable worker.o will be given a command line
+argument when they were execed off, this should be the value of m. Then they should try and increment the value
+of the clock in shared memory by that value multiplied by a million.Each child should also print to the screen 
+during each iteration of the loop a message specifying their PID and which increment they are doing.
+Children should also be outputting when they get in their critical section and when they leave it (based on real life time).
+
+Challenges faced :
+1. I was able to create a makefile that compiles two source files 
+2. In oss.c I tried to allocate shared memory, use it, then deallocate it but I was getting some errors. 
+3. I tried allocating message queue in oss by putting a message in it and then reading that message and output the result to
+   verify if a message can be send or received.
+4. In oss I tried to used fork off and exec one child and have that child attach to shared memory and read the clock and
+   output the result. Was getting errors.
+5. Tried extending the previous code to read a message from the message queue.
+6. Tried using signal handling to terminate after 2 seconds.
+7. Create the code to fork off a fixed number of processes but was getting errors.
+8. Tried setting up the guarding of the critical section with the message queue.
+9. Lastly tried setting up code to fork off child processes until the specific limits.
+
+PLEASE NOTE: I do not have any experience in C and purely due to lack of such experience, I was not able to fully write the code as mentioned for 
+oss.c and worker.c 
+I went through the codes provided on Canvas and when it comes to implemetation in Project 2 I was getting a lot of errors which
+I couldn't fix. I tried reading and looking into videos and tutorials that would help me, but that was not of much help for Project 3 
+I also tried looking in Tutorials point notes for Message Queues. I really tried working hard on this project and despite having started early, 
+this was all I could realistically do given the timeframe.
+
+I would really appreciate it if project related exercises, tutorials and examples are provided and demonstrated in class to help me 
+learn coding/developing programs that are required in completing the projects for this course. 
+
+
+
+
+
